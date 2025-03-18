@@ -19,14 +19,14 @@ laplacian_filtered = imfilter(portello, fspecial('laplacian'));
 gaussian_filtered = imfilter(portello, fspecial('gaussian', 5));
 %imshow (gaussian_filtered);
 
-% Convert sample images to grayscale
+% Convert images to grayscale
 portello_gray = rgb2gray(portello);
 road_gray = rgb2gray(road);
 overexposed_gray = rgb2gray(overexposed);
 barbecue_gray = rgb2gray(barbecue);
 
 
-% cell array to store the grayscale images
+% storing grayscale images
 images = {portello_gray, road_gray, overexposed_gray,barbecue_gray};
 
 % Number of images
@@ -45,7 +45,7 @@ for i = 1:num_images
 end
 
 
-% cell array to store the filtered images
+% storing filtered images
 filtered_images_highpass = cell(size(images));
 
 % Apply Sobel filter to each grayscale image
@@ -67,7 +67,7 @@ for i = 1:numel(filtered_images_highpass)
     title(['High-Pass Filtered Image ', num2str(i)]);
 end
 
-% cell array to store the filtered images
+% storing the filtered images
 filtered_images_lowpass = cell(size(images));
 
 % Define the size of the Gaussian filter (standard deviation)
