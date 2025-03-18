@@ -1,18 +1,17 @@
-% cell array to store the filtered images
+% storing the filtered images
 filtered_images_bilateral = cell(size(images));
 
-% Define parameters for the bilateral filter
+% parameters for the bilateral filter
 domain_sigma = 10; % Std of spatial domain
 range_sigma = 55; % Std of intensity range
 
-% Apply bilateral filter to each grayscale image
+% Apply bilateral filter to image
 for i = 1:numel(images)
     % Apply bilateral filter
     filtered_images_bilateral{i} = imbilatfilt(images{i}, domain_sigma, range_sigma);
 end
 
-% Display the filtered images in a grid layout
-figure;
+% Displaying
 
 for i = 1:numel(filtered_images_bilateral)
     subplot(num_rows, num_cols, i);
